@@ -1,0 +1,1 @@
+mvn deploy:deploy-file  -DgroupId=org.patchca   -DartifactId=patchca    -Dversion=0.5.0  -Dpackaging=jar    -Dfile=C:\Users\zy\Desktop\patchca-0.5.0\lib\patchca-0.5.0.jar   -Durl=http://192.168.2.221:8081/repository/maven-releases/ -DrepositoryId=maven-releases

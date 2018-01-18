@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>博信客户资源后台系统</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<link rel="stylesheet" href="styles/login.css"/>
+	<script type="text/javascript" src="plugins/easyui/jquery.min.js"></script>
+	<script type="text/javascript" src="scripts/login/login.js"></script>
+</head>
+
+<body>
+<div class="content">
+	<div class="main">
+		<div class="mainl"><img src="images/login_ban.jpg"/></div>
+		<div class="mainr">
+			<ul>
+				<!--class="onfocus"   class="onblur"  class="fault" -->
+				<li class="user"><input id="name" class="onblur" type="text" placeholder="请输入您的账号"/></li>
+				<li id="msg_name" class="notic"><i>您输入的账号格式不对</i></li>
+				<li class="password"><input id="password" class="onblur" type="password" placeholder="请输入您的密码"/></li>
+				<li id="msg_password" class="notic"><i>您输入密码错误</i></li>
+				<li class="yzh"><input id="code" class="onblur" type="text" placeholder="請輸入驗證碼"/><span><em><img id="codeImg" src="./rest/login/valCode" /></em><a id="changImg" href="#"></a></span></li>
+				<li id="msg_code" class="notic"><i>您输入验证码错误</i></li>
+				<li class="remenber">
+					<span class="floatl"><a href="javascript:void(0);" class="select select_s"></a>記住帳號</span>
+					<span class="floatr"><a href="#">忘记密码</a></span>
+				</li>
+				<li class="notic"></li>
+				<li><a id="login" href="#" class="button">立即登入</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+<div class="foot">
+	<div class="footer">Copyright 2017 博信世纪科技有限公司</div>
+</div>
+</body>
+</html>
+
+

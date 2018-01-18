@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<groupId>com.boxin</groupId>
+		<artifactId>base</artifactId>
+		<version>0.0.1</version>
+		<relativePath>../pom.xml</relativePath>
+	</parent>
+
+	<artifactId>base-service</artifactId>
+	<packaging>jar</packaging>
+	<name>base-service</name>
+	<description>base-service</description>
+
+	<dependencies>
+		<dependency>
+			<groupId>com.boxin</groupId>
+			<artifactId>base-dao</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.boxin</groupId>
+			<artifactId>base-mc</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjrt</artifactId>
+			<version>1.7.4</version>
+		</dependency>
+		<dependency>
+			<groupId>org.aspectj</groupId>
+			<artifactId>aspectjweaver</artifactId>
+			<version>1.7.4</version>
+		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-collections</groupId>
+			<artifactId>commons-collections</artifactId>
+		</dependency>
+		
+		<dependency>
+		  <groupId>org.drools</groupId>
+			  <artifactId>drools-core</artifactId>
+			  <version>5.4.0.Final</version>
+			</dependency>         
+			<dependency>
+			  <groupId>org.drools</groupId>
+			  <artifactId>drools-compiler</artifactId>
+			  <version>5.4.0.Final</version>
+			</dependency>
+			<dependency>
+			  <groupId>org.drools</groupId>
+			  <artifactId>drools-spring</artifactId>
+			  <version>5.4.0.Final</version>
+			</dependency>
+	</dependencies>
+
+	<build>
+		<resources>
+			<resource>
+				<directory>${project.basedir}/src/main/resources</directory>
+				<includes>
+					<include>**/*</include>
+				</includes>
+			</resource>
+		</resources>
+
+		<plugins>
+			<plugin>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<configuration>
+					<forkMode>always</forkMode>
+					<!-- argLine>${surefire.argLine}</argLine -->
+					<runOrder>alphabetical</runOrder>
+					<includes>
+						<include>**/*Test.*</include>
+					</includes>
+					<argLine>-XX:-UseSplitVerifier</argLine>
+				</configuration>
+			</plugin>
+			
+		</plugins>
+	</build>
+
+</project>

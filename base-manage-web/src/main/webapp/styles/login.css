@@ -1,0 +1,52 @@
+@charset "utf-8";
+/* CSS Document */
+body{ padding:0; margin:0 auto; font-family:"Microsoft YaHei";background:url(../images/logo_bg.gif) no-repeat center;}
+ul,li{ padding:0; margin:0; list-style:none; list-style-position:outside;}
+input,a{ vertical-align:top; text-decoration:none; outline:none; font-family:"Microsoft YaHei";}
+.floatl{ float:left;}
+.floatr{ float:right;}
+.content{ width:1100px; margin:80px auto; margin-bottom:170px; background:url(../images/logo.gif) no-repeat left top; padding-top:75px;overflow:hidden;}
+.main{ width:1098px; height:444px; border:1px solid #ebebeb;}
+.mainl{ float:left; width:597px;height:444px; border-right:1px solid #ebebeb;}
+.mainr{ float:right; width:500px;height:444px; background:#f7f7f7;}
+.mainr ul{ width:280px; height:360px; margin:55px auto;}
+.mainr ul li{ height:50px; width:100%; line-height:30px; font-size:16px;}
+.mainr ul li.notic{ height:30px;}
+.mainr ul li.notic i{ display:none; font-style:normal; color:#F00; font-size:14px; padding-left:5px;}
+.mainr ul li input{ width:230px; height:30px; padding:10px 5px; padding-left:50px; font-size:16px; background:url(../images/login_icon.png) no-repeat #fff;border-radius:3px;}
+.mainr ul li.yzh input{ width:110px; margin-right:10px;}
+.mainr ul li.yzh span{ display:inline-block; width:95px; background:#fff; border:1px solid #56aaf8; border-radius:2px; height:50px;}
+.mainr ul li.yzh a{ display:inline-block; height:100%; width:42px; background:url(../images/login_icon.png) no-repeat 9px -350px #56aaf8;}
+.mainr ul li.yzh em{ display:inline-block; width:53px;height: 44px; overflow:hidden;}
+.mainr ul li.yzh em img{ width:53px; height:44px;}
+.onfocus{ border:1px solid #3c9bf3; color:#3c9bf3; box-shadow: 0 0 5px #b9ddff;}/*获取焦点*/
+.onblur{ color:#a2a6ab; border:1px solid #cfd3d9; }/*失去焦点*/
+.fault{ border:1px solid #f50000; color:#ff3c22;}/*录入错误*/
+
+.user input.onfocus{ background-position:10px  14px;}
+.user input.fault{ background-position:10px  -24px;}
+.user input.onblur{ background-position:15px  -62px;}
+
+.password input.onfocus{ background-position:15px  -102px;}
+.password input.fault{ background-position:15px  -139px;}
+.password input.onblur{ background-position:15px  -178px;}
+
+.yzh input.onfocus{ background-position:15px  -219px;}
+.yzh input.fault{ background-position:15px  -264px;}
+.yzh input.onblur{ background-position:15px  -316px;}
+
+.refresh{ background-position:0px 365px}
+
+.mainr ul li.remenber{ height:18px; line-height:18px; font-size:14px;color:#247ed3;}
+.mainr ul li.remenber a{color:#247ed3;}
+.mainr ul li.remenber a.select{ display:inline-block; width:17px;height:17px; margin-right:10px;border-radius:2px; vertical-align:middle; border:1px solid #56aaf8; border-radius:3px; background-color:#fff;}
+.mainr ul li.remenber a.select_s{ background:url(../images/login_icon.png) no-repeat -1px -397px #56aaf8;}
+
+.button{ width:100%; display:inline-block; background:#56aaf8; text-align:center; color:#fff; height:30px; padding:10px 0; font-size:18px; border-radius:3px;}
+.foot{ width:100%;height:102px; border-top:4px solid #5da3fb; background:#32353f; line-height:102px; text-align:center; color:#7e838a; min-width: 1100px;}
+.footer{ width:1100px; margin:0 auto;}
+@media screen and (min-width:1900px) {
+    .content{ width:1100px; margin:100px auto; margin-bottom:292px; background:url(../images/logo.gif) no-repeat left top; padding-top:75px;overflow:hidden;}
+
+
+    　　}

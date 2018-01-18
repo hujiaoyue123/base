@@ -1,0 +1,8 @@
+Hello, ${userName}：
+<p>
+
+    欢迎注册ezuglobal! 请在 ${timeout} 内点击下面的链接地址激活您的帐号: <br/>
+    <a href="${url}">${url}</a>
+    (该链接有效时间: ${timeout})
+
+</p>

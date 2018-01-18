@@ -1,0 +1,87 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+    <bean id="lifecycleBeanPostProcessor" class="org.apache.shiro.spring.LifecycleBeanPostProcessor"/>
+
+    <bean class="org.springframework.aop.framework.autoproxy.DefaultAdvisorAutoProxyCreator"
+            depends-on="lifecycleBeanPostProcessor"/>
+
+    <bean class="org.apache.shiro.spring.security.interceptor.AuthorizationAttributeSourceAdvisor">
+        <property name="securityManager" ref="securityManager"/>
+    </bean>
+
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="serviceRealm"/>
+        <property name="sessionManager" ref="sessionManager"/>
+    </bean>
+
+    <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
+        <property name="sessionIdCookieEnabled" value="true"/>
+    </bean>
+
+    <bean id="permissionResources" class="com.boxin.base.common.security.PermissionResources"/>
+
+    <bean id="permissionResolver" class="com.boxin.base.common.security.SimplePermissionResolver"/>
+
+    <bean id="sha512Matcher" class="org.apache.shiro.authc.credential.HashedCredentialsMatcher">
+        <property name="hashAlgorithmName" value="SHA-256"/>
+        <property name="hashIterations" value="1024"/>
+    </bean>
+    <bean id="passwordService" class="com.boxin.base.common.security.PasswordService">
+        <property name="hashedCredentialsMatcher" ref="sha512Matcher"/>
+    </bean>
+    <bean id="cacheManager" class="com.boxin.base.common.security.SimpleCacheManager"/>
+
+    <bean id="authenticationService" class="com.boxin.base.manage.web.security.SimpleAuthenticationService"/>
+
+    <bean id="serviceRealm" class="org.apache.shiro.realm.service.ServiceRealm">
+        <property name="useSalt" value="true"/>
+        <property name="authenticationService" ref="authenticationService"/>
+        <property name="cacheManager" ref="cacheManager"/>
+        <property name="permissionResolver" ref="permissionResolver"/>
+        <property name="credentialsMatcher" ref="sha512Matcher"/>
+    </bean>
+
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.html"/>
+        <property name="successUrl" value="/main.html"/>
+        <property name="unauthorizedUrl" value="/login.html"/>
+        <property name="filterChainDefinitions">
+            <value>
+                <!--静态资源直接通过-->
+                /styles/** = anon
+                /images/** = anon
+                /scripts/** = anon
+                /plugins/** = anon
+                /rest/login.html = anon
+                /rest/adoLogin = anon
+                /rest/valCode = anon
+
+                /rest/getUserMenu = anon
+                /rest/getUserName = anon
+                /rest/modifyPass = anon
+                /rest/logout = anon
+
+                /rest/statistics/** = restPerms
+                /rest/member/** = restPerms
+                /rest/article/** = restPerms
+                /rest/global/** = restPerms
+                /rest/sys/** = restPerms
+                /rest/banner/** = restPerms
+                /rest/auth/** = restPerms
+                /rest/audit/** = restPerms
+                /rest/article/** = restPerms
+                /rest/comment/** = restPerms
+                /rest/main.html = restPerms
+                /rest/bank/** = restPerms
+                /rest/task/** = restPerms
+                /rest/afp/** = restPerms
+
+            </value>
+        </property>
+    </bean>
+
+    <bean id="restPerms" class="com.boxin.base.manage.web.security.RestPermissionsAuthorizationFilter"/>
+</beans>
